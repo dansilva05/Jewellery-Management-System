@@ -1,0 +1,401 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TitledPane?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="670.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ie.setu.jewelleryca.controllers.JeweleryController">
+    <center>
+        <TabPane prefHeight="200.0" prefWidth="200.0" tabClosingPolicy="UNAVAILABLE" BorderPane.alignment="CENTER">
+            <tabs>
+                <Tab text="Manage Store">
+                    <content>
+                        <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                            <content>
+                                <VBox alignment="TOP_CENTER" prefHeight="855.0" prefWidth="986.0">
+                                    <children>
+                                        <TitledPane animated="false" contentDisplay="CENTER" text="Add Display Case">
+                                            <content>
+                                                <GridPane>
+                                                    <columnConstraints>
+                                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="160.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="280.0" />
+                                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="160.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="280.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints prefHeight="40.0" valignment="CENTER" vgrow="SOMETIMES" />
+                                                        <RowConstraints prefHeight="40.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label text="Add Case ID" />
+                                                        <Label text="Lighting" GridPane.rowIndex="1" />
+                                                        <TextField fx:id="addCaseID" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" />
+                                                        <ChoiceBox fx:id="choiceCaseLighting" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" text="Type" textAlignment="RIGHT" GridPane.columnIndex="2" />
+                                                        <ChoiceBox fx:id="choiceCaseType" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="3" />
+                                                        <Button mnemonicParsing="false" onAction="#addDisplayCase" prefHeight="30.0" prefWidth="110.0" text="Add Display Case" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                                    </children>
+                                                </GridPane>
+                                            </content>
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </TitledPane>
+                                        <TitledPane contentDisplay="CENTER" expanded="false" text="Add Display Tray" textAlignment="CENTER">
+                                            <content>
+                                                <GridPane>
+                                                    <columnConstraints>
+                                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="160.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="280.0" />
+                                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="160.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="280.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints prefHeight="40.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints prefHeight="40.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints prefHeight="40.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label text="Display Case" />
+                                                        <ChoiceBox fx:id="displayCaseTray" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" />
+                                                        <Label text="Tray ID" GridPane.columnIndex="2" />
+                                                        <TextField fx:id="addTrayID" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="3" />
+                                                        <Label text="Tray Colour" GridPane.rowIndex="1" />
+                                                        <TextField fx:id="addTrayColour" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                        <Label text="Depth (cm)" GridPane.rowIndex="2" />
+                                                        <TextField fx:id="addTrayDepth" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                        <TextField fx:id="addTrayWidth" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                        <Label text="Width (cm)" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                        <Button mnemonicParsing="false" onAction="#addDisplayTray" prefHeight="30.0" prefWidth="110.0" text="Add Display Tray" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                                    </children>
+                                                </GridPane>
+                                            </content>
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </TitledPane>
+                                        <TitledPane contentDisplay="CENTER" expanded="false" text="Add Jewellery Item" textAlignment="CENTER">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                            <content>
+                                                <GridPane>
+                                                    <columnConstraints>
+                                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="160.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="280.0" />
+                                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="160.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="280.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints prefHeight="40.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints prefHeight="40.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints prefHeight="40.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints prefHeight="40.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label alignment="CENTER" contentDisplay="CENTER" text="Display Case" />
+                                                        <Label text="Display Tray" GridPane.columnIndex="2" />
+                                                        <Label text="Description" GridPane.rowIndex="1" />
+                                                        <Label text="Target Gender" GridPane.rowIndex="2" />
+                                                        <ChoiceBox fx:id="choiceTarget" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                        <Label text="Retail Price" GridPane.rowIndex="3" />
+                                                        <ChoiceBox fx:id="displayCaseItem" onAction="#caseItemChanged" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" />
+                                                        <ChoiceBox fx:id="displayTrayItem" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="3" />
+                                                        <Label text="Type" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                                                        <TextField fx:id="addItemDesc" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                        <TextField fx:id="addItemType" layoutX="184.0" layoutY="52.0" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
+                                                        <TextField fx:id="addItemPrice" layoutX="622.0" layoutY="52.0" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                        <TextField fx:id="addItemURL" layoutX="184.0" layoutY="112.0" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                        <Label text="Image URL" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                        <Button mnemonicParsing="false" onAction="#addItem" prefHeight="30.0" prefWidth="120.0" text="Add Item" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                                                    </children>
+                                                </GridPane>
+                                            </content>
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </TitledPane>
+                                        <TitledPane expanded="false" text="Add Materials/Components">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                            <content>
+                                                <GridPane>
+                                                    <columnConstraints>
+                                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="160.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="280.0" />
+                                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="160.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="280.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints maxHeight="-Infinity" minHeight="-Infinity" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label text="Display Case" />
+                                                        <Label text="Display Tray" GridPane.columnIndex="2" />
+                                                        <Label text="Item" GridPane.rowIndex="1" />
+                                                        <ChoiceBox fx:id="displayCaseMaterial" onAction="#caseMaterialChanged" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" />
+                                                        <ChoiceBox fx:id="itemMaterial" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                        <ChoiceBox fx:id="displayTrayMaterial" onAction="#trayMaterialChanged" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="3" />
+                                                        <Label text="Material/Component" GridPane.rowIndex="2" />
+                                                        <Label text="Description" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+                                                        <Label text="Weight (g)" GridPane.rowIndex="3" />
+                                                        <Label text="Quality" GridPane.columnIndex="2" GridPane.rowIndex="3" />
+                                                        <TextField fx:id="addMaterials" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                                                        <TextField fx:id="addWeight" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                                                        <TextField fx:id="addMaterialDesc" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
+                                                        <TextField fx:id="addQuality" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+                                                        <Button mnemonicParsing="false" onAction="#addItemMaterial" prefHeight="30.0" prefWidth="120.0" text="Add Material" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="4" />
+                                                    </children>
+                                                </GridPane>
+                                            </content>
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </TitledPane>
+                                        <TitledPane expanded="false" text="Remove Item">
+                                            <VBox.margin>
+                                                <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                            </VBox.margin>
+                                            <content>
+                                                <GridPane>
+                                                    <columnConstraints>
+                                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="160.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="280.0" />
+                                                        <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" prefWidth="160.0" />
+                                                        <ColumnConstraints hgrow="SOMETIMES" prefWidth="280.0" />
+                                                    </columnConstraints>
+                                                    <rowConstraints>
+                                                        <RowConstraints prefHeight="40.0" vgrow="SOMETIMES" />
+                                                        <RowConstraints prefHeight="40.0" vgrow="SOMETIMES" />
+                                                    </rowConstraints>
+                                                    <children>
+                                                        <Label text="Display Case" />
+                                                        <Label text="Display Tray" GridPane.columnIndex="2" />
+                                                        <Label text="Item" GridPane.rowIndex="1" />
+                                                        <ChoiceBox fx:id="displayCaseRemove" onAction="#caseRemoveChanged" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" />
+                                                        <ChoiceBox fx:id="itemRemove" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                                                        <ChoiceBox fx:id="displayTrayRemove" onAction="#trayRemoveChanged" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="3" />
+                                                        <Button mnemonicParsing="false" onAction="#removeItem" prefHeight="30.0" prefWidth="120.0" text="Remove Item" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                                                    </children>
+                                                </GridPane>
+                                            </content>
+                                            <font>
+                                                <Font name="System Bold" size="12.0" />
+                                            </font>
+                                        </TitledPane>
+                                    </children>
+                                </VBox>
+                            </content>
+                        </ScrollPane>
+                    </content>
+                </Tab>
+                <Tab text="Search Store">
+                    <content>
+                        <ScrollPane prefHeight="705.0" prefWidth="1000.0">
+                            <content>
+                                <SplitPane dividerPositions="0.3557582668187001" prefHeight="1028.0" prefWidth="986.0">
+                                    <items>
+                                        <VBox prefHeight="700.0" prefWidth="325.0">
+                                            <children>
+                                                <Label prefHeight="20.0" prefWidth="105.0" text="Browse Store">
+                                                    <VBox.margin>
+                                                        <Insets left="20.0" right="10.0" top="10.0" />
+                                                    </VBox.margin>
+                                                    <font>
+                                                        <Font name="System Bold" size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <Label text="Display Case">
+                                                    <VBox.margin>
+                                                        <Insets bottom="5.0" left="20.0" right="10.0" top="15.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <ComboBox fx:id="choiceDisplayCase" onAction="#searchDisplayCase" prefHeight="25.0" prefWidth="250.0">
+                                                    <VBox.margin>
+                                                        <Insets bottom="15.0" left="15.0" right="10.0" />
+                                                    </VBox.margin>
+                                                </ComboBox>
+                                                <Label text="Display Tray">
+                                                    <VBox.margin>
+                                                        <Insets bottom="5.0" left="20.0" right="10.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <ComboBox fx:id="choiceDisplayTray" onAction="#searchDisplayTray" prefHeight="25.0" prefWidth="250.0">
+                                                    <VBox.margin>
+                                                        <Insets bottom="15.0" left="15.0" right="10.0" />
+                                                    </VBox.margin>
+                                                </ComboBox>
+                                                <Label text="Item">
+                                                    <VBox.margin>
+                                                        <Insets bottom="5.0" left="20.0" right="10.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <ComboBox fx:id="choiceItem" onAction="#searchItem" prefHeight="25.0" prefWidth="250.0">
+                                                    <VBox.margin>
+                                                        <Insets bottom="15.0" left="15.0" right="10.0" />
+                                                    </VBox.margin>
+                                                </ComboBox>
+                                                <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#viewAllStock" prefHeight="25.0" prefWidth="110.0" text="View All Stock">
+                                                    <VBox.margin>
+                                                        <Insets bottom="10.0" left="20.0" />
+                                                    </VBox.margin>
+                                                </Button>
+                                                <Separator prefWidth="200.0">
+                                                    <VBox.margin>
+                                                        <Insets bottom="15.0" />
+                                                    </VBox.margin>
+                                                </Separator>
+                                                <Label text="Search Item">
+                                                    <VBox.margin>
+                                                        <Insets bottom="5.0" left="20.0" right="10.0" />
+                                                    </VBox.margin>
+                                                </Label>
+                                                <TextField fx:id="searchBar">
+                                                    <VBox.margin>
+                                                        <Insets bottom="15.0" left="15.0" right="10.0" />
+                                                    </VBox.margin>
+                                                </TextField>
+                                                <Button mnemonicParsing="false" onAction="#search" prefHeight="25.0" prefWidth="110.0" text="Search">
+                                                    <VBox.margin>
+                                                        <Insets bottom="10.0" left="20.0" />
+                                                    </VBox.margin>
+                                                </Button>
+                                                <ListView fx:id="searchResults" prefHeight="269.0" prefWidth="305.0">
+                                                    <VBox.margin>
+                                                        <Insets left="10.0" right="10.0" />
+                                                    </VBox.margin>
+                                                </ListView>
+                                                <ComboBox prefHeight="25.0" prefWidth="250.0" />
+                                            </children>
+                                        </VBox>
+                                        <VBox prefHeight="700.0" prefWidth="653.0">
+                                            <children>
+                                                <Label text="Item Details">
+                                                    <VBox.margin>
+                                                        <Insets bottom="15.0" left="30.0" right="10.0" top="30.0" />
+                                                    </VBox.margin>
+                                                    <font>
+                                                        <Font name="System Bold" size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <ImageView fx:id="itemImage" fitHeight="219.0" fitWidth="544.0" pickOnBounds="true" preserveRatio="true">
+                                                    <VBox.margin>
+                                                        <Insets bottom="20.0" left="40.0" right="10.0" />
+                                                    </VBox.margin>
+                                                </ImageView>
+                                                <TextArea fx:id="itemDetails" prefHeight="308.0" prefWidth="611.0">
+                                                    <VBox.margin>
+                                                        <Insets bottom="25.0" left="10.0" right="10.0" />
+                                                    </VBox.margin>
+                                                </TextArea>
+                                                <Label text="All Stock">
+                                                    <VBox.margin>
+                                                        <Insets bottom="15.0" left="30.0" right="10.0" />
+                                                    </VBox.margin>
+                                                    <font>
+                                                        <Font size="14.0" />
+                                                    </font>
+                                                </Label>
+                                                <TextArea fx:id="allStockDetails" prefHeight="269.0" prefWidth="611.0">
+                                                    <VBox.margin>
+                                                        <Insets bottom="30.0" left="10.0" right="10.0" />
+                                                    </VBox.margin>
+                                                </TextArea>
+                                            </children>
+                                        </VBox>
+                                    </items>
+                                </SplitPane>
+                            </content>
+                        </ScrollPane>
+                    </content></Tab>
+                <Tab text="Reports &amp; more">
+                    <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                            <children>
+                                <Label text="Reports and Persistence">
+                                    <VBox.margin>
+                                        <Insets bottom="15.0" left="30.0" right="10.0" top="15.0" />
+                                    </VBox.margin>
+                                    <font>
+                                        <Font name="System Bold" size="14.0" />
+                                    </font>
+                                </Label>
+                                <HBox alignment="CENTER_LEFT" prefHeight="48.0" prefWidth="1000.0">
+                                    <children>
+                                        <Button alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onAction="#stockReport" prefHeight="30.0" prefWidth="120.0" text="Stock Value">
+                                            <HBox.margin>
+                                                <Insets left="30.0" right="10.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button mnemonicParsing="false" onAction="#saveStore" prefHeight="30.0" prefWidth="120.0" text="Save Store">
+                                            <HBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button mnemonicParsing="false" onAction="#loadStore" prefHeight="30.0" prefWidth="120.0" text="Load Store">
+                                            <HBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                        <Button mnemonicParsing="false" onAction="#resetSystem" prefHeight="30.0" prefWidth="120.0" text="Reset System">
+                                            <HBox.margin>
+                                                <Insets left="10.0" right="10.0" />
+                                            </HBox.margin>
+                                        </Button>
+                                    </children>
+                                </HBox>
+                                <TextArea fx:id="reportArea" prefHeight="502.0" prefWidth="960.0">
+                                    <VBox.margin>
+                                        <Insets left="20.0" right="20.0" />
+                                    </VBox.margin>
+                                </TextArea>
+                            </children>
+                        </VBox>
+                    </content></Tab>
+            </tabs>
+        </TabPane>
+    </center>
+   <top>
+      <VBox fx:id="vbox_top" alignment="TOP_CENTER" prefHeight="50.0" BorderPane.alignment="TOP_CENTER">
+         <children>
+            <Label fx:id="top_text" alignment="CENTER" contentDisplay="CENTER" text="Jewellery Management System" textAlignment="CENTER">
+               <font>
+                  <Font name="Bookman Old Style" size="24.0" />
+               </font>
+            </Label>
+            <Label fx:id="messages" />
+         </children>
+      </VBox>
+   </top>
+</BorderPane>

@@ -1,0 +1,33 @@
+#welcomeView {
+    -fx-min-height: 670px;
+    -fx-min-width: 1000px;
+    -fx-alignment: center;
+    -fx-alignment-align: center;
+    -fx-background-color: black;
+    -fx-background-image: url("images/background.jpg");
+}
+
+.textWelcome {
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.7), 12, 0.3, 0, 4);
+}
+
+#txtWel {
+    -fx-padding: 0 0 30 0;
+}
+
+#enterButton {
+    -fx-padding: 5 20 5 20;
+}
+
+#vbox_top {
+    -fx-background-color: black;
+    -fx-text-fill: white;
+}
+
+#top_text {
+    -fx-text-fill: white;
+}
+
+#messages {
+    -fx-text-fill: white;
+}
