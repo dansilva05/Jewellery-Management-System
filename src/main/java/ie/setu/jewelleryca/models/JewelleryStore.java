@@ -67,7 +67,7 @@ public class JewelleryStore implements Serializable {
                     }
                 }
 
-                // otherwise remember the tray with the fewest items as a fallback
+                // if nothing found, remember the tray with the fewest items as a fallback
                 if (fewestItems == -1 || tray.getItems().size() < fewestItems) {
                     fewestItems = tray.getItems().size();
                     bestTray = tray;
