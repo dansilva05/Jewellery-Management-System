@@ -59,7 +59,7 @@ public class JewelleryStore implements Serializable {
             for (int j = 0; j < dc.getTrays().size(); j++) {
                 DisplayTray tray = dc.getTrays().get(j);
 
-                // first try: a tray with at least one item of the same type
+                // looks for a tray with at least one item of the same type
                 for (int k = 0; k < tray.getItems().size(); k++) {
                     if (tray.getItems().get(k).getType().equalsIgnoreCase(item.getType())) {
                         tray.addItem(item);
@@ -76,12 +76,12 @@ public class JewelleryStore implements Serializable {
             }
         }
 
-        // fallback: add to the tray with the fewest items if there's any tray at all
+        // add to the tray with the fewest items if there's any tray
         if (bestTray != null) {
             bestTray.addItem(item);
             return new SearchResult(bestCase, bestTray, item);
         }
-        return null;  // no trays in the system at all
+        return null;  // no trays in the system
     }
 
     // adds a material to an item (found by index)
