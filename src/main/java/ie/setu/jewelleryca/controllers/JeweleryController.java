@@ -28,7 +28,7 @@ public class JeweleryController {
     @FXML
     private TextField addTrayID;
     @FXML
-    private TextField addTrayColour;
+    private ColorPicker pickTrayColour;
     @FXML
     private TextField addTrayDepth;
     @FXML
@@ -43,7 +43,7 @@ public class JeweleryController {
     @FXML
     private TextField addItemDesc;
     @FXML
-    private TextField addItemType;
+    private ChoiceBox<String> choiceItemType;
     @FXML
     private TextField addItemPrice;
     @FXML
@@ -100,8 +100,8 @@ public class JeweleryController {
         choiceCaseLighting.getItems().addAll("Lit", "Unlit");
         choiceCaseType.getItems().addAll("Freestanding", "Wall-mounted");
         choiceTarget.getItems().addAll("Female", "Male", "Unisex");
+        choiceItemType.getItems().addAll("accessories", "anklets", "body jewellery", "bracelets", "brooches/pins", "earrings", "head/hair jewellery", "necklaces", "rings");
 
-        // when the user clicks a result in the list, show that item's details (GPT)
         searchResults.setOnMouseClicked(event -> searchResultClicked());
 
         fillAllChoiceBoxes();
@@ -172,7 +172,7 @@ public class JeweleryController {
     private void addDisplayTray() {
         String caseId = displayCaseTray.getValue();
         String trayId = addTrayID.getText().trim();
-        String colour = addTrayColour.getText().trim();
+        String colour = pickTrayColour.getValue().toString();
         String widthTxt = addTrayWidth.getText().trim();
         String depthTxt = addTrayDepth.getText().trim();
 
@@ -194,7 +194,7 @@ public class JeweleryController {
         boolean added = AppData.getStore().addTrayToCase(caseId, new DisplayTray(trayId, colour, width, depth));
         if (added) {
             addTrayID.clear();
-            addTrayColour.clear();
+            pickTrayColour.setValue(null);
             addTrayWidth.clear();
             addTrayDepth.clear();
             fillAllChoiceBoxes();
@@ -210,7 +210,7 @@ public class JeweleryController {
         String caseId = displayCaseItem.getValue();
         String trayId = displayTrayItem.getValue();
         String desc = addItemDesc.getText().trim();
-        String type = addItemType.getText().trim();
+        String type = choiceItemType.getValue();
         String gender = choiceTarget.getValue();
         String url = addItemURL.getText().trim();
         String priceStr = addItemPrice.getText().trim();
@@ -233,7 +233,7 @@ public class JeweleryController {
                 new JewelleryItem(desc, type, gender, url, price));
         if (added) {
             addItemDesc.clear();
-            addItemType.clear();
+            choiceItemType.getSelectionModel().clearSelection();
             addItemURL.clear();
             addItemPrice.clear();
             choiceTarget.getSelectionModel().clearSelection();
@@ -242,6 +242,44 @@ public class JeweleryController {
             reportMessage("Item '" + desc + "' added to tray '" + trayId + "' in case '" + caseId + "'.");
         } else {
             reportMessage("Could not add item. Make sure you have selected a valid case and tray.");
+        }
+    }
+
+    @FXML
+    private void smartAdd() {
+        String desc = addItemDesc.getText().trim();
+        String type = choiceItemType.getValue();
+        String gender = choiceTarget.getValue();
+        String url = addItemURL.getText().trim();
+        String priceStr = addItemPrice.getText().trim();
+
+        if (desc.isEmpty() || type.isEmpty() || gender == null || priceStr.isEmpty()) {
+            reportMessage("Please fill in all item fields for smart add.");
+            return;
+        }
+
+        double price;
+        try {
+            price = Double.parseDouble(priceStr);
+        } catch (NumberFormatException e) {
+            reportMessage("Retail Price must be a number (e.g. 199.99).");
+            return;
+        }
+
+        SearchResult placement = AppData.getStore().smartAdd(new JewelleryItem(desc, type, gender, url, price));
+        if (placement != null) {
+            addItemDesc.clear();
+            choiceItemType.getSelectionModel().clearSelection();
+            addItemURL.clear();
+            addItemPrice.clear();
+            choiceTarget.getSelectionModel().clearSelection();
+            fillAllChoiceBoxes();
+            refreshAllStock();
+            reportMessage("Item '" + desc + "' smart-added to tray '"
+                    + placement.getDisplayTray().getTrayID() + "' in case '"
+                    + placement.getDisplayCase().getCaseID() + "'.");
+        } else {
+            reportMessage("Could not smart-add item. There are no trays in the system yet.");
         }
     }
 

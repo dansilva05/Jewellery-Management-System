@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.ColorPicker?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ListView?>
@@ -84,12 +85,12 @@
                                                         <Label text="Tray ID" GridPane.columnIndex="2" />
                                                         <TextField fx:id="addTrayID" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="3" />
                                                         <Label text="Tray Colour" GridPane.rowIndex="1" />
-                                                        <TextField fx:id="addTrayColour" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                                         <Label text="Depth (cm)" GridPane.rowIndex="2" />
                                                         <TextField fx:id="addTrayDepth" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
                                                         <TextField fx:id="addTrayWidth" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                                                         <Label text="Width (cm)" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                                                         <Button mnemonicParsing="false" onAction="#addDisplayTray" prefHeight="30.0" prefWidth="110.0" text="Add Display Tray" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+                                          <ColorPicker fx:id="pickTrayColour" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                                                     </children>
                                                 </GridPane>
                                             </content>
@@ -129,11 +130,24 @@
                                                         <ChoiceBox fx:id="displayTrayItem" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="3" />
                                                         <Label text="Type" GridPane.columnIndex="2" GridPane.rowIndex="1" />
                                                         <TextField fx:id="addItemDesc" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-                                                        <TextField fx:id="addItemType" layoutX="184.0" layoutY="52.0" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                                                         <TextField fx:id="addItemPrice" layoutX="622.0" layoutY="52.0" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="1" GridPane.rowIndex="3" />
                                                         <TextField fx:id="addItemURL" layoutX="184.0" layoutY="112.0" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="3" GridPane.rowIndex="2" />
                                                         <Label text="Image URL" GridPane.columnIndex="2" GridPane.rowIndex="2" />
-                                                        <Button mnemonicParsing="false" onAction="#addItem" prefHeight="30.0" prefWidth="120.0" text="Add Item" GridPane.columnIndex="3" GridPane.halignment="CENTER" GridPane.rowIndex="3" />
+                                          <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" GridPane.columnIndex="3" GridPane.rowIndex="3">
+                                             <children>
+                                                <Button mnemonicParsing="false" onAction="#smartAdd" prefHeight="30.0" prefWidth="120.0" text="Smart Add">
+                                                   <HBox.margin>
+                                                      <Insets bottom="5.0" left="5.0" right="10.0" top="5.0" />
+                                                   </HBox.margin>
+                                                </Button>
+                                                              <Button mnemonicParsing="false" onAction="#addItem" prefHeight="30.0" prefWidth="120.0" text="Add Item" textAlignment="CENTER">
+                                                   <HBox.margin>
+                                                      <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+                                                   </HBox.margin>
+                                                </Button>
+                                             </children>
+                                          </HBox>
+                                          <ChoiceBox fx:id="choiceItemType" prefHeight="25.0" prefWidth="250.0" GridPane.columnIndex="3" GridPane.rowIndex="1" />
                                                     </children>
                                                 </GridPane>
                                             </content>

@@ -47,6 +47,43 @@ public class JewelleryStore implements Serializable {
         return true;
     }
 
+    // automatically finds a tray to add an item to (smart add)
+    // tries to find a tray with another item of the same type, otherwise picks the tray with the fewest items
+    public SearchResult smartAdd(JewelleryItem item) {
+        DisplayTray bestTray = null;
+        DisplayCase bestCase = null;
+        int fewestItems = -1;
+
+        for (int i = 0; i < displayCases.size(); i++) {
+            DisplayCase dc = displayCases.get(i);
+            for (int j = 0; j < dc.getTrays().size(); j++) {
+                DisplayTray tray = dc.getTrays().get(j);
+
+                // first try: a tray with at least one item of the same type
+                for (int k = 0; k < tray.getItems().size(); k++) {
+                    if (tray.getItems().get(k).getType().equalsIgnoreCase(item.getType())) {
+                        tray.addItem(item);
+                        return new SearchResult(dc, tray, item);
+                    }
+                }
+
+                // otherwise remember the tray with the fewest items as a fallback
+                if (fewestItems == -1 || tray.getItems().size() < fewestItems) {
+                    fewestItems = tray.getItems().size();
+                    bestTray = tray;
+                    bestCase = dc;
+                }
+            }
+        }
+
+        // fallback: add to the tray with the fewest items if there's any tray at all
+        if (bestTray != null) {
+            bestTray.addItem(item);
+            return new SearchResult(bestCase, bestTray, item);
+        }
+        return null;  // no trays in the system at all
+    }
+
     // adds a material to an item (found by index)
     public boolean addMaterialToItem(String caseID, String trayID, int itemIndex, MaterialComponent material) {
         JewelleryItem item = findItem(caseID, trayID, itemIndex);
